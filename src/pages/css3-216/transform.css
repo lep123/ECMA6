@@ -1,0 +1,197 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.box{
+  width: 100%;
+  height: 100%;
+}
+.box div{
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  border: 1px solid red;
+}
+/* Transform字面上就是变形，改变的意思。
+在CSS3中transform主要包括以下几种：
+旋转rotate、扭曲skew、缩放scale和移动translate以及矩阵变形matrix。*/
+
+/*transform ： none |[]* 也就是： 
+transform: rotate | scale | skew | translate |matrix; */
+
+/* none:表示不进么变换；
+表示一个或多个变换函数，以空格分开；
+换句话说就是我们同时对一个元素进行transform的多种属性操作，
+例如rotate、scale、translate三种，
+但这里需要提醒大家的，以往我们叠加效果都是用逗号（“，”）隔开，
+但transform中使用多个属性时却需要有空格隔开。大家记住了是空格隔开。*/
+ 
+/* transform属性实现了一些可用SVG实现的同样的功能。它可用于内联(inline)元素和块级(block)元素。 */
+
+
+
+/* 一、旋转rotate */
+
+/* rotate() ：通过指定的角度参数对原元素指定一个2D rotation（2D 旋转），
+需先有transform-origin属性的定义。
+transform-origin定义的是旋转的基点，
+其中angle是指旋转角度，
+如果设置的值为正数表示顺时针旋转，
+如果设置的值为负数，则表示逆时针旋转。如：transform:rotate(30deg): */
+.box_rotate{
+  transform:rotate(-30deg);
+ 	/* -ms-transform:rotate(7deg);  IE 9 */
+  	/* -moz-transform:rotate(7deg); Firefox */
+  /* -webkit-transform:rotate(7deg); Safari 和 Chrome */
+  /*-o-transform:rotate(7deg); 	 Opera */
+}
+
+
+/* 二、移动translate */
+/* 移动translate我们分为三种情况：
+translate(x,y)水平方向和垂直方向同时移动（也就是X轴和Y轴同时移动）；
+translateX(x)仅水平方向移动（X轴移动）；
+translateY(Y)仅垂直方向移动（Y轴移动），具体使用方法如下：*/
+
+
+ 
+.box_translate{
+  transform: translate(100px,20px);
+  /* transform: translateX(50px);
+  transform: translateY(20px); */
+  
+}
+
+
+/* 三、缩放scale */
+/* 缩放scale和移动translate是极其相似，他也具有三种情况：
+scale(x,y)使元素水平方向和垂直方向同时缩放（也就是X轴和Y轴同时缩放）；
+scaleX(x)元素仅水平方向缩放（X轴缩放）；
+scaleY(y)元素仅垂直方向缩放（Y轴缩放），
+但它们具有相同的缩放中心点和基数，其中心点就是元素的中心位置，缩放基数为1，
+如果其值大于1元素就放大，反之其值小于1，元素缩小。 */
+
+
+.box_scale{
+  transform: scale(2,1.5);
+  /* transform: scaleX(2);
+  transform: scaleY(1.5); */
+}
+
+
+/* 四、扭曲skew */
+
+
+/* 扭曲skew和translate、scale一样同样具有三种情况：
+skew(x,y)使元素在水平和垂直方向同时扭曲（X轴和Y轴同时按一定的角度值进行扭曲变形）；
+skewX(x)仅使元素在水平方向扭曲变形（X轴扭曲变形）；
+skewY(y)仅使元素在垂直方向扭曲变形（Y轴扭曲变形）*/
+
+.box_skew{
+  transform: skew(30deg,30deg);
+  /* transform: skewX(30deg);
+  transform:skewY(30deg); */
+}
+
+/* 改变元素基点transform-origin */
+
+/* transform-origin(X,Y):用来设置元素的运动的基点（参照点）。
+默认点是元素的中心点。
+其中X和Y的值可以是百分值,em,px，
+其中X也可以是字符参数值left,center,right；
+Y和X一样除了百分值外还可以设置字符值top,center,bottom，
+这个看上去有点像我们background-position设置一样； */
+
+/* 1、top left | left top 等价于 0 0 | 0% 0%
+
+2、top | top center | center top 等价于 50% 0
+
+3、right top | top right 等价于 100% 0
+
+4、left | left center | center left 等价于 0 50% | 0% 50%
+
+5、center | center center 等价于 50% 50%（默认值）
+
+6、right | right center | center right 等价于 100% 50%
+
+7、bottom left | left bottom 等价于 0 100% | 0% 100%
+
+8、bottom | bottom center | center bottom 等价于 50% 100%
+
+9、bottom right | right bottom 等价于 100% 100%
+*/
+
+/* 其中 left,center right是水平方向取值，
+对应的百分值为left=0%;center=50%;right=100%而top center bottom是垂直方向的取值，
+其中top=0%;center=50%;bottom=100%;如果只取一个值，表示垂直方向值不变 */
+
+.htmleaf-container {
+  margin: 0 auto;
+}
+
+#trans3DDemo1 {
+  
+}
+
+#trans3DBoxes1 {
+  transform-style: preserve-3d;
+  perspective: 3000px;
+  transform: translate(120px) rotate3d(1, 1, 1, -41deg);
+}
+
+#trans3DBoxes1 div {
+  position: absolute;
+  width: 248px;
+  height: 248px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, .2);
+  display: block;
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.a1 {
+  background: rgb(148, 141, 131);
+  opacity: 0.85;
+  transform:  translate3d(0px, 0px, 125px);
+
+}
+
+.a2 {
+  background: rgb(10, 59, 110);
+  opacity: 0.85;
+  transform:  translate3d(-125px, 0px, 0px) rotate3d(0, 1, 0, -90deg);
+ 
+}
+
+.a3 {
+  background: rgb(70, 179, 24);
+  opacity: 0.85;
+  transform: translate3d(125px, 0px, 0px) rotate3d(0, 1, 0, 90deg);
+ 
+}
+
+.a4 {
+  background: rgb(237, 190, 2);
+  opacity: 0.85;
+  transform: translate3d(0, -125px, 0) rotate3d(1, 0, 0, 90deg);
+  
+}
+
+.a5 {
+  background: rgb(199, 118, 19);
+  opacity: 0.85;
+  transform: matrix3d(1, 0, 0, 0, 0, 0, -1, 0, 0, 1, 0, 0, 0, 125, 0, 1);
+}
+
+.a6 {
+  background: rgb(184, 33, 36);
+  opacity: 0.85;
+  transform: matrix3d(-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, -125, 1);
+}
+
+
+
